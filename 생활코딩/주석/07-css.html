@@ -1,0 +1,30 @@
+<html>
+<head>
+    <style>
+        /* .* = class: 그룹화 -> 중복 사용, 포괄적 */
+        .js{
+            font-weight: bold;
+            text-decoration: underline;
+            color:rgb(255, 77, 0);
+        }
+        /* #* = id: 식별을 위한 용도 -> 고유성, 예외처리 */
+        #first{
+            color:green;
+        }
+        /* * = tag */
+        span{
+            font-style: italic;
+            font-weight: bold;
+        }
+        /* 우선순위: id > class > tag */
+    </style>
+</head>
+<body>
+    <h1><a href="index.html">WEB</a></h1>
+    <h2 style="background-color:rgb(191, 253, 255); color:rgb(255, 77, 0);">JavaScript</h2>
+    <p>
+        <!-- 선택자 div, span: css를 사용하는 영역을 선택하는 수단, div는 줄바꿈 있음, span은 줄바꿈 없음 -->
+        <div style="font-weight:bold;">JavaScript</div><span id="first" class="js">JavaScript</span> (/ˈdʒɑːvəskrɪpt/), often abbreviated as JS, is a programming language and core technology of the World Wide Web, alongside <span>HTML</span> and <span>CSS</span>. As of 2023, 98.7% of websites use <span class="js">JavaScript</span> on the client side for webpage behavior,[10] often incorporating third-party libraries. All major web browsers have a dedicated <span class="js">JavaScript</span> engine to execute the code on users' devices. <span class="js">JavaScript</span> is a high-level, often just-in-time compiled language that conforms to the ECMAScript standard.[11] It has dynamic typing, prototype-based object-orientation, and first-class functions. It is multi-paradigm, supporting event-driven, functional, and imperative programming styles. It has application programming interfaces (APIs) for working with text, dates, regular expressions, standard data structures, and the Document Object Model (DOM).
+    </p>
+</body>
+</html>
