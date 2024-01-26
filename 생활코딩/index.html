@@ -11,10 +11,25 @@
             target.style.backgroundColor = 'black';
             target.style.color = 'white';
             this.value = 'day';
+
+            var aList = document.querySelectorAll('a');
+            var i = 0;
+            while(i < aList.length) {
+                aList[i].style.color = 'pink';
+                i = i + 1;
+            }
+
         } else {
             target.style.backgroundColor = 'white';
             target.style.color = 'black';
             this.value = 'night';
+
+            var aList = document.querySelectorAll('a');
+            var i = 0;
+            while(i < aList.length) {
+                aList[i].style.color = 'green';
+                i = i + 1;
+            }
         }
     ">
     <ol>
