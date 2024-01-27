@@ -6,43 +6,36 @@
         // event 안에서의 this는 event가 소속되어 있는 tag를 가리킴
         // 독립된 함수에서의 this는 전역객체(윈도우)를 가리킴
         // event에서의 this는 함수에서 인자로 넘겨져야 함(self)
-        function linksSetColor(color) {
-            var aList = document.querySelectorAll('a');
-            var i = 0;
-            while(i < aList.length) {
-                aList[i].style.color = color;
-                i = i + 1;
+        var Links = {
+            setColor:function(color) {
+                var aList = document.querySelectorAll('a');
+                var i = 0;
+                while(i < aList.length) {
+                    aList[i].style.color = color;
+                    i = i + 1;
+                }
             }
         }
-        function bodySetColor(color) {
-            document.querySelector('body').style.color = color;
-        }
-        function bodyBackgroundColor(color) {
-            document.querySelector('body').style.backgroundColor = color;
+        var Body = {
+            setColor:function(color) {
+                document.querySelector('body').style.color = color;
+            },
+            setBackgroundColor:function(color) {
+                document.querySelector('body').style.backgroundColor = color;
+            }
         }
         function nightDayHandler(self) {
             // var target = document.querySelector('body');
             if(self.value === 'night') {
-                bodyBackgroundColor('black');
-                bodySetColor('white');
-                // target.style.backgroundColor = 'black';
-                // target.style.color = 'white';
+                Body.setBackgroundColor('black');
+                Body.setColor('white');
                 self.value = 'day';
-
-                linksSetColor('pink');
-                // var aList = document.querySelectorAll('a');
-                // var i = 0;
-                // while(i < aList.length) {
-                //     aList[i].style.color = 'pink';
-                //     i = i + 1;
-                // }
-
+                Links.setColor('pink');
             } else {
-                bodyBackgroundColor('white');
-                bodySetColor('black');
+                Body.setBackgroundColor('white');
+                Body.setColor('black');
                 self.value = 'night';
-
-                linksSetColor('green')
+                Links.setColor('green')
             }
         }
     </script>
