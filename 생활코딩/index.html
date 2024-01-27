@@ -3,31 +3,46 @@
     <title>WEB1</title>
     <meta charset="utf-8">
     <script>
+        // event 안에서의 this는 event가 소속되어 있는 tag를 가리킴
+        // 독립된 함수에서의 this는 전역객체(윈도우)를 가리킴
+        // event에서의 this는 함수에서 인자로 넘겨져야 함(self)
+        function linksSetColor(color) {
+            var aList = document.querySelectorAll('a');
+            var i = 0;
+            while(i < aList.length) {
+                aList[i].style.color = color;
+                i = i + 1;
+            }
+        }
+        function bodySetColor(color) {
+            document.querySelector('body').style.color = color;
+        }
+        function bodyBackgroundColor(color) {
+            document.querySelector('body').style.backgroundColor = color;
+        }
         function nightDayHandler(self) {
-            var target = document.querySelector('body');
+            // var target = document.querySelector('body');
             if(self.value === 'night') {
-                target.style.backgroundColor = 'black';
-                target.style.color = 'white';
+                bodyBackgroundColor('black');
+                bodySetColor('white');
+                // target.style.backgroundColor = 'black';
+                // target.style.color = 'white';
                 self.value = 'day';
 
-                var aList = document.querySelectorAll('a');
-                var i = 0;
-                while(i < aList.length) {
-                    aList[i].style.color = 'pink';
-                    i = i + 1;
-                }
+                linksSetColor('pink');
+                // var aList = document.querySelectorAll('a');
+                // var i = 0;
+                // while(i < aList.length) {
+                //     aList[i].style.color = 'pink';
+                //     i = i + 1;
+                // }
 
             } else {
-                target.style.backgroundColor = 'white';
-                target.style.color = 'black';
+                bodyBackgroundColor('white');
+                bodySetColor('black');
                 self.value = 'night';
 
-                var aList = document.querySelectorAll('a');
-                var i = 0;
-                while(i < aList.length) {
-                    aList[i].style.color = 'green';
-                    i = i + 1;
-                }
+                linksSetColor('green')
             }
         }
     </script>
