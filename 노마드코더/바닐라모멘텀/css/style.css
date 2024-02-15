@@ -1,15 +1,78 @@
 body {
   background-color: beige;
+  color: white;
+  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .hidden {
   display: none;
 }
 
-/* .todo-text {
-  width: fit-content;
-  word-break: break-all[keep-all];
-} */
+#clock {
+  font-size: 150px;
+  text-align: center;
+  margin: 0;
+  margin-top: -40px;
+  text-shadow: 0 0 5px rgb(95, 95, 95);
+}
+
+#greeting {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  font-size: 50px;
+  text-align: center;
+  margin: 0;
+  margin-top: 12%;
+  text-shadow: 0 0 4px rgb(95, 95, 95);
+}
+
+#todo-form {
+  width: 450px;
+  height: auto;
+  margin-top: 35px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+
+.textbox {
+  text-decoration: underline;
+  text-align: center;
+  font-size: 25px;
+  margin-top: 15px;
+  background-color: transparent;
+  border-color: transparent;
+  outline: none;
+  color: white;
+  text-shadow: 0 0 4px rgb(95, 95, 95);
+}
+
+.textbox::placeholder {
+  text-decoration: underline;
+  text-align: auto;
+  color: white;
+  text-shadow: 0 0 4px rgb(95, 95, 95);
+}
+
+li {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 7px;
+  text-align: left;
+  text-shadow: 0 0 4px rgb(95, 95, 95);
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  text-shadow: 0 0 4px rgb(95, 95, 95);
+}
 
 .background {
   pointer-events: none;
@@ -30,6 +93,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
+  text-shadow: 0 0 4px rgb(95, 95, 95);
 }
 
 .author {
@@ -39,4 +103,5 @@ body {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+  text-shadow: 0 0 4px rgb(95, 95, 95);
 }
