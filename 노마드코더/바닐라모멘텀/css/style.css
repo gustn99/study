@@ -5,3 +5,8 @@ body {
 .hidden {
   display: none;
 }
+
+/* .todo-text {
+  width: fit-content;
+  word-break: break-all[keep-all];
+} */
