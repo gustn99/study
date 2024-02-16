@@ -2,6 +2,7 @@ const toDoForm = document.querySelector("#todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const ul = document.querySelector("ul");
 
+const COMPLETED_CLASSNAME = "complete";
 const TODOS_KEY = "todos";
 let toDos = [];
 
@@ -10,13 +11,27 @@ function paintTodo(newTodo) {
   li.id = newTodo.id;
   const span = document.createElement("span");
   span.innerText = newTodo.text;
+  const check = document.createElement("input");
+  check.type = "checkbox";
   const button = document.createElement("button");
   button.type = "button";
   button.innerText = "❌";
+  check.addEventListener("change", onChange);
   button.addEventListener("click", deleteToDo);
   li.appendChild(span);
+  li.appendChild(check);
   li.appendChild(button);
   ul.appendChild(li);
+}
+
+function onChange(event) {
+  const li = event.target.parentElement;
+  console.log(li);
+  if (li.className === "") {
+    li.classList.add(COMPLETED_CLASSNAME);
+  } else {
+    li.classList.remove(COMPLETED_CLASSNAME);
+  }
 }
 
 function deleteToDo(event) {

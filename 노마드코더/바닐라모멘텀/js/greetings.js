@@ -5,7 +5,7 @@ const todoForm = document.querySelector("#todo-form");
 
 const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username";
-const GREETING_KEY = "greeting"
+const GREETING_KEY = "greeting";
 
 function onLoginSubmit(event) {
   event.preventDefault();
