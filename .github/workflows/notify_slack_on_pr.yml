@@ -13,7 +13,7 @@ jobs:
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
       run: |
-        REVIEWER=$(jq -r '.pull_request.head.repo.requested_reviewers[0].login' "$GITHUB_EVENT_PATH")
+        REVIEWER=$(jq -r '.pull_request.requested_reviewers[0].login' "$GITHUB_EVENT_PATH")
         echo "Reviewer: $REVIEWER"
         REVIEWER_ID="<@$(curl -s -X GET "https://slack.com/api/users.list" -H "Authorization: Bearer $SLACK_TOKEN" | jq -r ".members[] | select(.profile.display_name == \"$REVIEWER\") | .id")>"
         echo "Reviewer ID: $REVIEWER_ID"
