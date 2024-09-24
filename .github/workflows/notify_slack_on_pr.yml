@@ -1,0 +1,21 @@
+name: Notify Slack on PR Review Request
+
+on:
+  pull_request:
+    types: [review_requested]
+
+jobs:
+  notify-slack:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send notification to Slack
+      env:
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      run: |
+        REVIEWER=$(jq -r '.requested_reviewers[0].login' "$GITHUB_EVENT_PATH")
+        PR_TITLE=$(jq -r '.pull_request.title' "$GITHUB_EVENT_PATH")
+        PR_URL=$(jq -r '.pull_request.html_url' "$GITHUB_EVENT_PATH")
+
+        curl -X POST -H 'Content-type: application/json' --data "{
+          \"text\": \"A new review has been requested from @$REVIEWER on the following PR: *<$PR_URL|$PR_TITLE>*\"
+        }" $SLACK_WEBHOOK_URL
