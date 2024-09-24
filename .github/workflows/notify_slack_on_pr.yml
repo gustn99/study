@@ -14,7 +14,9 @@ jobs:
         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
       run: |
         REVIEWER=$(jq -r '.pull_request.head.repo.requested_reviewers[0].login' "$GITHUB_EVENT_PATH")
+        echo "Reviewer: $REVIEWER"
         REVIEWER_ID="<@$(curl -s -X GET "https://slack.com/api/users.list" -H "Authorization: Bearer $SLACK_TOKEN" | jq -r ".members[] | select(.profile.display_name == \"$REVIEWER\") | .id")>"
+        echo "Reviewer ID: $REVIEWER_ID"
         PR_TITLE=$(jq -r '.pull_request.title' "$GITHUB_EVENT_PATH")
         PR_URL=$(jq -r '.pull_request.html_url' "$GITHUB_EVENT_PATH")
 
