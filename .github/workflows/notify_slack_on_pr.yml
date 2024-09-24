@@ -17,5 +17,5 @@ jobs:
         PR_URL=$(jq -r '.pull_request.html_url' "$GITHUB_EVENT_PATH")
 
         curl -X POST -H 'Content-type: application/json' --data "{
-          \"text\": \"A new review has been requested from @$REVIEWER on the following PR: *<$PR_URL|$PR_TITLE>*\"
+          \"text\": \"@$REVIEWER 님에게 새로운 PR request가 있습니다: *<$PR_URL|$PR_TITLE>*\"
         }" $SLACK_WEBHOOK_URL
