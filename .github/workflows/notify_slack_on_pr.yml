@@ -14,8 +14,8 @@ jobs:
         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
       run: |
         # 리뷰어 이메일 가져오기
-        REVIEWER_EMAIL=$(jq -r '.pull_request.requested_reviewers[0].email' "$GITHUB_EVENT_PATH")
-        echo "Reviewer Email: $GITHUB_EVENT_PATH"
+        REVIEWER_EMAIL=$(jq -r '.pull_request.requested_reviewers[0].login' "$GITHUB_EVENT_PATH")
+        echo "Reviewer Email: $REVIEWER_EMAIL"
 
         # Slack 사용자 목록 가져오기
         SLACK_USERS=$(curl -s -X GET "https://slack.com/api/users.list" -H "Authorization: Bearer $SLACK_TOKEN")
